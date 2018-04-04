@@ -4,7 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -33,11 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     public RelativeLayout mDisplayView, mainActivity, cameraContrlLayt ;
     DabKickVideoButton watchTogether;
-    RecyclerView photosList;
     LSCameraPreview mCameraPreview;
     boolean cameraGranted = true;
-    ImageView mCameraSnapBtn, mCameraFlipBtn, mCameraFlashBtn;
-    ImageView mResultView;
+    ImageView mCameraSnapBtn, mCameraFlipBtn, mCameraFlashBtn, horn;
+    ImageView mResultView, flowerFilter, heartFilter;
     String localImagePath;
     DabKickMedia photo;
 
@@ -48,25 +52,22 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
-        cameraContrlLayt.setVisibility(View.GONE);
+        cameraSetup();
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(
-                this, 2, LinearLayoutManager.VERTICAL, false);
-        photosList.setLayoutManager(layoutManager);
-
-        ArrayList<DabKickMedia> newList = new ArrayList<>(Util.getAllPhotos());
-        CategoriesAdapter adapter = new CategoriesAdapter(this, newList, new CategoriesAdapter.OnItemClickListener() {
+        flowerFilter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(DabKickMedia photoInfo) {
+            public void onClick(View v) {
 
-                localImagePath = photoInfo.getUrl();
-                photo = photoInfo;
+                horn.setImageDrawable(getResources().getDrawable(R.drawable.flowerfilter));
             }
         });
 
-        photosList.setAdapter(adapter);
-
-        //cameraSetup();
+        heartFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                horn.setImageDrawable(getResources().getDrawable(R.drawable.heartsfilter));
+            }
+        });
 
         watchTogether.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
         mCameraFlashBtn = (ImageView) findViewById(R.id.camera_flash);
         mainActivity = (RelativeLayout) findViewById(R.id.main_layout);
         watchTogether = (DabKickVideoButton) findViewById(R.id.watch_together);
-        photosList = (RecyclerView) findViewById(R.id.photo_list);
+        horn = (ImageView) findViewById(R.id.horn);
+        flowerFilter = (ImageView) findViewById(R.id.flower_filter) ;
+        heartFilter = (ImageView) findViewById(R.id.heart_filter);
 
         watchTogether.setTag("back");
 
@@ -171,7 +174,9 @@ public class MainActivity extends AppCompatActivity {
 
         mainActivity.addView(mDisplayView);
         cameraContrlLayt.setVisibility(View.VISIBLE);
+        horn.setVisibility(View.VISIBLE);
         cameraContrlLayt.bringToFront();
+        horn.bringToFront();
 
         //camera setup end
 
@@ -246,23 +251,36 @@ public class MainActivity extends AppCompatActivity {
                             final String imageFullPath = filesDir + "/" + filename;
 
                             localImagePath = imageFullPath;
-                            Bitmap capturedImage = resultBitmap;
 
                             ImageView imageView = new ImageView(MainActivity.this);
                             imageView.setLayoutParams(new ViewGroup.LayoutParams(100, 100));
-
-                            //imageView.setImageBitmap(resultBitmap);
 
                             Util.adjustToFillParant(resultBitmap, imageView, MainActivity.this);
                             final Bitmap bitmap = Bitmap.createScaledBitmap(resultBitmap, imageView.getLayoutParams().width, imageView.getLayoutParams().height, false);
                             resultBitmap.recycle();
 
+                            int widthInDp = (int)Util.convertPixelToDp(MainActivity.this,horn.getWidth());
+                            int htInDp = (int)Util.convertPixelToDp(MainActivity.this,horn.getHeight());
+
+                            int width =(int)Util.convertDpToPixel(MainActivity.this, widthInDp * ((float)imageView.getLayoutParams().width / Util.getScreenWidth(MainActivity.this)));
+                            int ht = (int)Util.convertDpToPixel(MainActivity.this, htInDp * ((float)imageView.getLayoutParams().height / Util.getScreenHeight(MainActivity.this)));
+
+                            Canvas canvas = new Canvas(bitmap);
+
+                            int centreX = (canvas.getWidth()  - width) /2;
+
+                            int centreY = (int)Util.convertDpToPixel(MainActivity.this, 50);
+
+                            Bitmap overlayBitmap = ((BitmapDrawable)horn.getDrawable()).getBitmap();
+                            Bitmap resizedOverlay = Bitmap.createScaledBitmap(overlayBitmap, width, ht, false);
+                            canvas.drawBitmap(resizedOverlay, centreX, centreY, new Paint());
+                            canvas.save();
+
                             mResultView.setImageBitmap(bitmap);
                             mResultView.bringToFront();
 
-
-
                             cameraContrlLayt.setVisibility(View.GONE);
+                            horn.setVisibility(View.GONE);
                             watchTogether.setVisibility(View.VISIBLE);
                             watchTogether.setTag("front");
                             watchTogether.bringToFront();
@@ -296,6 +314,8 @@ public class MainActivity extends AppCompatActivity {
             mDisplayView.bringToFront();
             cameraContrlLayt.bringToFront();
             cameraContrlLayt.setVisibility(View.VISIBLE);
+            horn.bringToFront();
+            horn.setVisibility(View.VISIBLE);
 
             mCameraPreview.bringToFront();
             mCameraPreview.resumePreview();
@@ -313,6 +333,8 @@ public class MainActivity extends AppCompatActivity {
             mDisplayView.bringToFront();
             cameraContrlLayt.bringToFront();
             cameraContrlLayt.setVisibility(View.VISIBLE);
+            horn.bringToFront();
+            horn.setVisibility(View.VISIBLE);
 
             mCameraPreview.bringToFront();
             mCameraPreview.resumePreview();

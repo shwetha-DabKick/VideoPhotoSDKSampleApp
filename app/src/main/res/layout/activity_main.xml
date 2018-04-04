@@ -8,16 +8,14 @@
     android:background="@android:color/transparent"
     android:id="@+id/main_layout">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="2"
-        android:verticalSpacing="0dp"
-        android:horizontalSpacing="0dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
-        android:listSelector="@drawable/list_selector"
-        android:id="@+id/photo_list"/>
+    <ImageView
+        android:layout_width="265dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/heartsfilter"
+        android:id="@+id/horn"/>
 
     <RelativeLayout
         android:id="@+id/cameraCtrlLayout"
@@ -29,12 +27,28 @@
         android:visibility="gone">
 
         <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@+id/capture_Img"
+            android:layout_marginRight="20dp"
+            android:id="@+id/flower_filter"
+            android:src="@drawable/flowerfiltericon"/>
+
+        <ImageView
             android:id="@+id/capture_Img"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:background="@android:color/transparent"
             android:src="@drawable/camera_shutter" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/capture_Img"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/heart_filter"
+            android:src="@drawable/heartsfiltericon"/>
 
         <ImageView
             android:id="@+id/flip_camera"
@@ -44,7 +58,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/camera_flip" />
+            android:src="@drawable/camera_flip"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/camera_flash"
@@ -54,7 +69,8 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/flash_off_v70" />
+            android:src="@drawable/flash_off_v70"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 
@@ -66,7 +82,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="60dp"
         android:layout_marginBottom="10dp"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

@@ -195,6 +195,13 @@ public class Util {
         return pixel;
     }
 
+    static public float convertPixelToDp(Context c, float pixel) {
+        float density = c.getResources().getDisplayMetrics().density;
+        float dp = pixel / density;
+
+        return dp;
+    }
+
     static public int getScreenWidth(Activity activity) {
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
