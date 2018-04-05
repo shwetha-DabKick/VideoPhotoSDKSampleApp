@@ -81,39 +81,34 @@ public class Util {
 
         List<DabKickMedia> media = new ArrayList<>();
 
-        DabKickVideo mask = new DabKickVideo("Erica Fernandes", "sulphur cooling mask", "20500","https://img.youtube.com/vi/ldOWJcG5eyE/0.jpg",
-                //"https://www.youtube.com/watch?v=ldOWJcG5eyE");
+        DabKickVideo detaila = new DabKickVideo("Sylvester", "Chiffon Cardigan", "40000","http://qvc.scene7.com/is/image/QVC/pic/hp/tsv_20180216.jpg?qlt=95,1&$aemtsvimage$ ",
                 "http://qvc0.content.video.llnw.net/smedia/4826bb17d50c481b98a9e427e1c29c79/Y-/AwwQn_RUR5K0hivvTyecrE_Av5AHFfD0YaJ-RbrYU/a301149-18021616.mp4");
-        DabKickVideo shopping = new DabKickVideo("Erica Fernandes", "Shopping Haul", "40300","https://img.youtube.com/vi/N9itVne50Nk/0.jpg",
-                "https://www.youtube.com/watch?v=N9itVne50Nk");
-        DabKickVideo nykaaReview = new DabKickVideo("Erica Fernandes", "Nykaa Cheeky Blush DUO", "20200","https://img.youtube.com/vi/J7CfUJiM1uw/0.jpg",
-                "https://www.youtube.com/watch?v=J7CfUJiM1uw");
-        DabKickVideo blackHeads = new DabKickVideo("Erica Fernandes", "BlackHeads", "102500","https://img.youtube.com/vi/lpb8DkbrgvQ/0.jpg",
-                "https://www.youtube.com/watch?v=lpb8DkbrgvQ");
-        DabKickVideo hairFall = new DabKickVideo("Erica Fernandes", "HairFall Rescue", "74400","https://img.youtube.com/vi/or1PrGxhgfM/0.jpg",
-                "https://www.youtube.com/watch?v=or1PrGxhgfM");
-        DabKickVideo faceWash = new DabKickVideo("Erica Fernandes", "Face Wash", "61000","https://img.youtube.com/vi/U-slXLrp8-U/0.jpg",
-                "https://www.youtube.com/watch?v=U-slXLrp8-U");
-        DabKickVideo hairSerum = new DabKickVideo("Erica Fernandes", "Hair Serum", "44900","https://img.youtube.com/vi/4mVsgwfuaPg/0.jpg",
-                "https://www.youtube.com/watch?v=4mVsgwfuaPg");
-        DabKickVideo eyeCream = new DabKickVideo("Erica Fernandes", "Eye Cream", "43200","https://img.youtube.com/vi/yUKFHaT4DTU/0.jpg",
-                "https://www.youtube.com/watch?v=yUKFHaT4DTU");
-        DabKickVideo tutorial = new DabKickVideo("Erica Fernandes", "Makeup tutorial", "214600","https://img.youtube.com/vi/dt0oVfkGQNI/0.jpg",
-                "https://www.youtube.com/watch?v=dt0oVfkGQNI");
-        DabKickVideo smokyEyehack = new DabKickVideo("Erica Fernandes", "Smoky Eye Hack", "84200","https://img.youtube.com/vi/oIhNDpsG_xA/0.jpg",
-                "https://www.youtube.com/watch?v=oIhNDpsG_xA");
+        DabKickVideo detail1 = new DabKickVideo("Sylvester", "Mission Impossible", "40000","http://cdn2-www.craveonline.com/assets/uploads/2015/07/Mission-Impossible-Tom-Cruise.jpg",
+                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4");
+        DabKickVideo detail2 = new DabKickVideo("Sylvester", "Elephants Dream", "40000","https://www.transformingthechurch.org/elephants_dream_title_658w.jpg",
+                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4");
+        DabKickVideo detail3 = new DabKickVideo("Sylvester", "Bull Run", "40000","https://s.hdnux.com/photos/26/01/16/5772198/6/920x920.jpg",
+                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4");
+        DabKickVideo detail4 = new DabKickVideo("Sylvester", "Smoking Tire", "40000","http://www.ridelust.com/wp-content/uploads/2011/08/Picture-13-600x305.jpg",
+                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4");
+        DabKickVideo detail5 = new DabKickVideo("Sylvester", "Mission Impos. Trailer", "40000","https://vignette.wikia.nocookie.net/missionimpossible/images/d/da/Slider-TV.jpg/revision/latest/scale-to-width-down/590?cb=20110713140930",
+                "http://video.dailymail.co.uk/video/1418450360/2014/10/1418450360_3860569858001_Mission-Impossible-1-Trailer.mp4");
+        DabKickVideo detail6 = new DabKickVideo("Sylvester", "Soccer Highlights", "40000","https://www.mercurynews.com/wp-content/uploads/2017/04/sjm-quakes-0307-002.jpg?w=452",
+                "https://manifest.prod.boltdns.net/manifest/v1/hls/v5/clear/5530036774001/134ce722-22c4-44af-a8a7-111300e4867c/10s/master.m3u8?fastly_token=NWM1ZGQ3YzlfNDA2ODU0NmY1NjIyZTkyNGQxNjk3NThjYjNmYmJmMDY4OTk5ZjRmMzc5OTM2NDlmZDM2OWE0NGY1MzczYzQxNQ%3D%3D");
+        DabKickVideo detail7 = new DabKickVideo("Sylvester", "Football Highlights", "40000","http://img.bleacherreport.net/img/images/photos/003/052/463/df9e69c46443349f3ccc6905b2053094_crop_north.jpg?1410055466&w=630&h=420",
+                "https://media.gannett-cdn.com/35553589001/35553589001_5642705023001_5642552128001.mp4");
+        DabKickVideo detail8 = new DabKickVideo("Sylvester", "Elon @ TED", "40000","https://pi.tedcdn.com/r/pl.tedcdn.com/social/ted-logo-fb.png?v=wAff13s",
+                "https://download.ted.com/talks/ElonMusk_2017-600k.mp4");
 
-        media.add(mask);
-        media.add(shopping);
-        media.add(nykaaReview);
-        media.add(blackHeads);
-        media.add(hairFall);
-        media.add(faceWash);
-        media.add(hairSerum);
-        media.add(eyeCream);
-        media.add(tutorial);
-        media.add(smokyEyehack);
-
+        media.add(detaila);
+        media.add(detail1);
+        media.add(detail3);
+        media.add(detail4);
+        media.add(detail5);
+        media.add(detail6);
+        media.add(detail7);
+        media.add(detail8);
+        media.add(detail2);
         return media;
 
     }
